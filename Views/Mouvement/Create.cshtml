@@ -1,0 +1,33 @@
+@model MonNameSpaceGestionCourrier.Data.MouvementCourrier
+
+<h2>Create New Mouvement</h2>
+
+@using (Html.BeginForm("Create", "Mouvement", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.CourrierId)
+        @Html.TextBoxFor(model => model.CourrierId, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Statut)
+        @Html.TextBoxFor(model => model.Statut, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Acteur)
+        @Html.TextBoxFor(model => model.Acteur, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateMouvement)
+        @Html.TextBoxFor(model => model.DateMouvement, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nom_depositaire)
+        @Html.TextBoxFor(model => model.Nom_depositaire, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}
