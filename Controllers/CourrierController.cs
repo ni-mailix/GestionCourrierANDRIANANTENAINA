@@ -17,7 +17,7 @@ namespace MonNameSpaceGestionCourrier.Controllers
         // Autres actions du contrôleur...
 
         [HttpPost]
-        public IActionResult Create(Guid courrierId, MouvementViewModel model)
+        public IActionResult CreateCourrier(Guid courrierId, MouvementViewModel model)
         {
             if (ModelState.IsValid)
             {

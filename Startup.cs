@@ -55,21 +55,21 @@ namespace MonNameSpaceGestionCourrier
     routes.MapRoute(
         name: "courrier-details",
         template: "courrier/{id}",
-        defaults: new { controller = "Courrier", action = "Details" }
+        defaults: new { controller = "CourrierController", action = "Details" }
     );
 
     // Création d'un nouveau courrier
     routes.MapRoute(
         name: "courrier-create",
         template: "courrier/create",
-        defaults: new { controller = "Courrier", action = "Create" }
+        defaults: new { controller = "CourrierController", action = "CreateCourrier" }
     );
 
     // Interrogation des courriers
     routes.MapRoute(
         name: "courrier-query",
         template: "courrier/query",
-        defaults: new { controller = "Courrier", action = "Query" }
+        defaults: new { controller = "CourrierController", action = "Query" }
     );
 
     // Autres routes...

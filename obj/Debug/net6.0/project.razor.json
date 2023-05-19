@@ -18389,13 +18389,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Dossier_Nirina\\M2\\mai-2023\\C#\\GestionCourrierANDRIANANTENAINA2318\\Gestion_courrier_ANDRIANANTENAINA\\Views\\Mouvement\\Create.cshtml",
-      "TargetPath": "Views\\Mouvement\\Create.cshtml",
+      "FilePath": "e:\\Dossier_Nirina\\M2\\mai-2023\\C#\\GestionCourrierANDRIANANTENAINA2318\\Gestion_courrier_ANDRIANANTENAINA\\Views\\Courrier\\CreateCourrier.cshtml",
+      "TargetPath": "Views\\Courrier\\CreateCourrier.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Dossier_Nirina\\M2\\mai-2023\\C#\\GestionCourrierANDRIANANTENAINA2318\\Gestion_courrier_ANDRIANANTENAINA\\Views\\Courrier\\Create.cshtml",
-      "TargetPath": "Views\\Courrier\\Create.cshtml",
+      "FilePath": "e:\\Dossier_Nirina\\M2\\mai-2023\\C#\\GestionCourrierANDRIANANTENAINA2318\\Gestion_courrier_ANDRIANANTENAINA\\Views\\Mouvement\\Create.cshtml",
+      "TargetPath": "Views\\Mouvement\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
