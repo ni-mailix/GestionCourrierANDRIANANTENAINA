@@ -50,11 +50,36 @@ namespace MonNameSpaceGestionCourrier
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+{
+    // Affichage des détails d'un courrier
+    routes.MapRoute(
+        name: "courrier-details",
+        template: "courrier/{id}",
+        defaults: new { controller = "Courrier", action = "Details" }
+    );
+
+    // Création d'un nouveau courrier
+    routes.MapRoute(
+        name: "courrier-create",
+        template: "courrier/create",
+        defaults: new { controller = "Courrier", action = "Create" }
+    );
+
+    // Interrogation des courriers
+    routes.MapRoute(
+        name: "courrier-query",
+        template: "courrier/query",
+        defaults: new { controller = "Courrier", action = "Query" }
+    );
+
+    // Autres routes...
+
+    routes.MapRoute(
+        name: "default",
+        template: "{controller=Home}/{action=Index}/{id?}"
+    );
+});
+
         }
     }
 }

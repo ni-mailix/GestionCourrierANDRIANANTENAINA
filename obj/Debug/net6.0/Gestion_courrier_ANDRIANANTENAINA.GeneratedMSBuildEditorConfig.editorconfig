@@ -8,45 +8,45 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Gestion_courrier_ANDRIANANTENAINA
 build_property.RootNamespace = Gestion_courrier_ANDRIANANTENAINA
-build_property.ProjectDir = e:\Dossier_Nirina\M2\mai-2023\C#\GestionCourrierANDRIANANTENAINA2318\Gestion_courrier_ANDRIANANTENAINA\
+build_property.ProjectDir = E:\Dossier_Nirina\M2\mai-2023\C#\GestionCourrierANDRIANANTENAINA2318\Gestion_courrier_ANDRIANANTENAINA\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = e:\Dossier_Nirina\M2\mai-2023\C#\GestionCourrierANDRIANANTENAINA2318\Gestion_courrier_ANDRIANANTENAINA
+build_property.MSBuildProjectDirectory = E:\Dossier_Nirina\M2\mai-2023\C#\GestionCourrierANDRIANANTENAINA2318\Gestion_courrier_ANDRIANANTENAINA
 build_property._RazorSourceGeneratorDebug = 
 
-[e:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/Error.cshtml]
+[E:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/Index.cshtml]
+[E:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/Privacy.cshtml]
+[E:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[E:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/_ViewImports.cshtml]
+[E:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/_ViewStart.cshtml]
+[E:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Views/Courrier/Create.cshtml]
+[E:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Views/Courrier/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnJpZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Views/Mouvement/Create.cshtml]
+[E:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Views/Mouvement/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW91dmVtZW50XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/Shared/_Layout.cshtml]
+[E:/Dossier_Nirina/M2/mai-2023/C\#/GestionCourrierANDRIANANTENAINA2318/Gestion_courrier_ANDRIANANTENAINA/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-vhreypuvsn
