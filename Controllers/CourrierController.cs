@@ -1,46 +1,55 @@
 using Microsoft.AspNetCore.Mvc;
+using MonNameSpaceGestionCourrier.Data;
 using MonNameSpaceGestionCourrier.ViewModels;
+using System;
 
-[HttpPost]
-public IActionResult Create(CourrierViewModel model)
+namespace MonNameSpaceGestionCourrier.Controllers
 {
-    if (ModelState.IsValid)
+    public class CourrierController : Controller
     {
-        var courrier = new Courrier
+        private readonly GestionCourrierDbContext _dbContext;
+
+        public CourrierController(GestionCourrierDbContext dbContext)
         {
-            Id = Guid.NewGuid(),
-            Objet = model.Objet,
-            DateArrivee = model.DateArrivee,
-            Expediteur = model.Expediteur,
-            Destinataire = model.Destinataire,
-            Urgent_O_N = model.Urgent_O_N,
-            DateCreation = DateTime.Now,
-            DateModification = null
-        };
+            _dbContext = dbContext;
+        }
 
-        // Enregistrez le courrier dans la base de données
-        _dbContext.Courriers.Add(courrier);
-        _dbContext.SaveChanges();
+        // Autres actions du contrôleur...
 
-        // Créez un mouvement initial associé à ce courrier
-        var mouvement = new MonNameSpaceGestionCourrier.Data.MouvementCourrier
+        [HttpPost]
+        public IActionResult Create(Guid courrierId, MouvementViewModel model)
         {
-            Id = Guid.NewGuid(),
-            CourrierId = courrier.Id,
-            Statut = "Reçu",
-            Acteur = "Receptionniste",
-            DateMouvement = model.DateArrivee,
-            Nom_depositaire = "Receptionniste"
-        };
+            if (ModelState.IsValid)
+            {
+                var courrier = _dbContext.Courriers.Find(courrierId);
 
-        // Enregistrez le mouvement dans la base de données
-        _dbContext.MouvementsCourriers.Add(mouvement);
-        _dbContext.SaveChanges();
+                if (courrier != null)
+                {
+                    var mouvement = new MouvementCourrier
+                    {
+                        Id = Guid.NewGuid(),
+                        CourrierId = courrierId,
+                        Statut = model.Statut,
+                        Acteur = model.Acteur,
+                        DateMouvement = model.DateMouvement,
+                        Nom_depositaire = model.Nom_depositaire
+                    };
 
-        // Redirigez vers la page de détails du courrier nouvellement créé
-        return RedirectToAction("Details", new { id = courrier.Id });
+                    // Enregistrez le mouvement dans la base de données
+                    _dbContext.MouvementsCourriers.Add(mouvement);
+                    _dbContext.SaveChanges();
+
+                    // Mettez à jour la date de modification du courrier
+                    courrier.DateModification = DateTime.Now;
+                    _dbContext.SaveChanges();
+
+                    // Redirigez vers la page de détails du courrier
+                    return RedirectToAction("Details", "Courrier", new { id = courrierId });
+                }
+            }
+
+            // Si le modèle n'est pas valide ou si le courrier n'est pas trouvé, retournez à la vue précédente avec les erreurs de validation
+            return View(model);
+        }
     }
-
-    // Si le modèle n'est pas valide, retournez à la vue de création avec les erreurs de validation
-    return View(model);
 }
