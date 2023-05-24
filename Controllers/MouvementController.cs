@@ -1,51 +1,36 @@
 using Microsoft.AspNetCore.Mvc;
-using MonNameSpaceGestionCourrier.Data;
+using MonNameSpaceGestionCourrier.Models;
 using MonNameSpaceGestionCourrier.ViewModels;
+using System;
 
 namespace MonNameSpaceGestionCourrier.Controllers
 {
     public class MouvementController : Controller
     {
-        private readonly GestionCourrierDbContext _dbContext;
+        private readonly Data.GestionCourrierDbContext _dbContext;
 
-        public MouvementController(GestionCourrierDbContext dbContext)
+        public MouvementController(Data.GestionCourrierDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
+        // Actions du contrôleur...
+
+        public IActionResult Create()
+        {
+            return View("CreateMouvement");
+        }
+
         [HttpPost]
-        public IActionResult Create(Guid courrierId, MouvementViewModel model)
+        public IActionResult Create(MouvementViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var courrier = _dbContext.Courriers.Find(courrierId);
+                // Logique de création d'un mouvement
 
-                if (courrier != null)
-                {
-                    var mouvement = new MouvementCourrier
-                    {
-                        Id = Guid.NewGuid(),
-                        CourrierId = courrierId,
-                        Statut = model.Statut,
-                        Acteur = model.Acteur,
-                        DateMouvement = model.DateMouvement,
-                        Nom_depositaire = model.Nom_depositaire
-                    };
-
-                    // Enregistrez le mouvement dans la base de données
-                    _dbContext.MouvementsCourriers.Add(mouvement);
-                    _dbContext.SaveChanges();
-
-                    // Mettez à jour la date de modification du courrier
-                    courrier.DateModification = DateTime.Now;
-                    _dbContext.SaveChanges();
-
-                    // Redirigez vers la page de détails du courrier
-                    return RedirectToAction("Details", "Courrier", new { id = courrierId });
-                }
+                return RedirectToAction("Index");
             }
 
-            // Si le modèle n'est pas valide ou si le courrier n'est pas trouvé, retournez à la vue précédente avec les erreurs de validation
             return View(model);
         }
     }

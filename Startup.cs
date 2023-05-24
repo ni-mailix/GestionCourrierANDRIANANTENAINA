@@ -18,19 +18,20 @@ namespace MonNameSpaceGestionCourrier
             Configuration = configuration;
         }
 
-       public void ConfigureServices(IServiceCollection services)
-{
-    // Configure DbContext
-    services.AddDbContext<GestionCourrierDbContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        [Obsolete]
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // Configure DbContext
+            services.AddDbContext<GestionCourrierDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-    // Configure MVC
-    services.AddControllersWithViews();
+            // Configure MVC
+            services.AddControllersWithViews();
 
-    // Configure default routing
-    services.AddMvc(options => options.EnableEndpointRouting = false)
-        .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-}
+            // Configure default routing
+            services.AddMvc(options => options.EnableEndpointRouting = false)
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        }
 
 
 
@@ -51,25 +52,26 @@ namespace MonNameSpaceGestionCourrier
 
             app.UseMvc(routes =>
 {
-    // Affichage des détails d'un courrier
-    routes.MapRoute(
-        name: "courrier-details",
-        template: "courrier/{id}",
-        defaults: new { controller = "CourrierController", action = "Details" }
-    );
-
     // Création d'un nouveau courrier
     routes.MapRoute(
         name: "courrier-create",
         template: "courrier/create",
-        defaults: new { controller = "CourrierController", action = "CreateCourrier" }
+        defaults: new { controller = "Courrier", action = "CreateCourrier" }
     );
+
+    // Affichage des détails d'un courrier
+    routes.MapRoute(
+        name: "courrier-details",
+        template: "courrier/{id}",
+        defaults: new { controller = "Courrier", action = "Details" }
+    );
+
 
     // Interrogation des courriers
     routes.MapRoute(
         name: "courrier-query",
         template: "courrier/query",
-        defaults: new { controller = "CourrierController", action = "Query" }
+        defaults: new { controller = "Courrier", action = "Query" }
     );
 
     // Autres routes...
@@ -79,6 +81,7 @@ namespace MonNameSpaceGestionCourrier
         template: "{controller=Home}/{action=Index}/{id?}"
     );
 });
+
 
         }
     }

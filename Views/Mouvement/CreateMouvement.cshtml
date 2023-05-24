@@ -1,14 +1,9 @@
-@model MonNameSpaceGestionCourrier.Data.MouvementCourrier
+@model MonNameSpaceGestionCourrier.ViewModels.MouvementViewModel
 
 <h2>Create New Mouvement</h2>
 
-@using (Html.BeginForm("Create", "Mouvement", FormMethod.Post))
+@using (Html.BeginForm("CreateMouvement", "Mouvement", FormMethod.Post))
 {
-    <div class="form-group">
-        @Html.LabelFor(model => model.CourrierId)
-        @Html.TextBoxFor(model => model.CourrierId, new { @class = "form-control" })
-    </div>
-
     <div class="form-group">
         @Html.LabelFor(model => model.Statut)
         @Html.TextBoxFor(model => model.Statut, new { @class = "form-control" })

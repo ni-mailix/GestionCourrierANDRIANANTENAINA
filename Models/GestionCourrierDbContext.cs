@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MonNameSpaceGestionCourrier.Models;
 
 namespace MonNameSpaceGestionCourrier.Data
 {
