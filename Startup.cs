@@ -30,7 +30,10 @@ namespace MonNameSpaceGestionCourrier
 
             // Add routing
             services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddLogging();
         }
+
+        
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

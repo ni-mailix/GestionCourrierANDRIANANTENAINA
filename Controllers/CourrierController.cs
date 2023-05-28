@@ -1,20 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MonNameSpaceGestionCourrier.Data;
 using MonNameSpaceGestionCourrier.Models;
 using MonNameSpaceGestionCourrier.ViewModels;
+using System;
 
 namespace MonNameSpaceGestionCourrier.Controllers
 {
     public class CourrierController : Controller
     {
         private readonly GestionCourrierDbContext _dbContext;
+        private readonly ILogger<CourrierController> _logger;
 
-        public CourrierController(GestionCourrierDbContext dbContext)
+        public CourrierController(GestionCourrierDbContext dbContext, ILogger<CourrierController> logger)
         {
             _dbContext = dbContext;
+            _logger = logger;
         }
-
-        // Actions du contrôleur...
 
         public IActionResult CreateCourrier()
         {
@@ -35,14 +37,24 @@ namespace MonNameSpaceGestionCourrier.Controllers
                     Urgent_O_N = model.Urgent_O_N
                 };
 
-                _dbContext.Courriers.Add(courrier);
-                _dbContext.SaveChanges();
+                try
+                {
+                    _dbContext.Courriers.Add(courrier);
+                    _dbContext.SaveChanges();
 
-                // Redirigez vers une action appropriée (par exemple, Index)
-                return RedirectToAction("Index", "Home");
+                    _logger.LogInformation("Les données ont été insérées avec succès dans la base de données.");
+
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Une erreur s'est produite lors de l'insertion des données.");
+                    ModelState.AddModelError("", "Une erreur s'est produite lors de l'insertion des données. Veuillez réessayer.");
+
+                    return View(model);
+                }
             }
 
-            // Si le modèle n'est pas valide, affichez à nouveau la vue avec les erreurs de validation
             return View(model);
         }
     }

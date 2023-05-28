@@ -1,28 +1,31 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MonNameSpaceGestionCourrier.Data;
-using Microsoft.EntityFrameworkCore.SqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Configure les services
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<GestionCourrierDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
         sqlServerOptionsAction: sqlOptions =>
         {
-           sqlOptions.EnableRetryOnFailure();
-       }
-        ));
+            sqlOptions.EnableRetryOnFailure();
+        }));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// Configure le pipeline de requête HTTP
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -35,27 +38,20 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-// Get an instance of the DbContext from the service provider
+// Initialise la base de données
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var dbContext = services.GetRequiredService<GestionCourrierDbContext>();
+    var hostEnvironment = services.GetRequiredService<IWebHostEnvironment>();
 
-    try
+    // Applique les migrations pendantes à la base de données
+    if (hostEnvironment.IsDevelopment())
     {
-        // Apply any pending migrations to the database
         dbContext.Database.Migrate();
-
-        // Your additional database-related code here...
-
-        // The application will continue running after this point
     }
-    catch (Exception ex)
-    {
-        // Handle any errors that occurred during database initialization
-        // You can log the exception or take appropriate action
-        Console.WriteLine($"An error occurred during database initialization: {ex.Message}");
-    }
+
+    // Votre code supplémentaire lié à la base de données ici...
 }
 
 app.Run();
