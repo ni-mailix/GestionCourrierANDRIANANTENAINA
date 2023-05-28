@@ -5,7 +5,19 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">page d'accueil</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">Gestion de courrier</a>.</p>
+    <h1 class="display-4">GESTION DE COURRIER</h1>
+
+    <div style="display: flex;" >
+  <div style="flex: 1;" class="blue-background">
+            @Html.Partial("~/Views/Courrier/CreateCourrier.cshtml", new MonNameSpaceGestionCourrier.ViewModels.CourrierViewModel())
+  </div>
+  <div style="flex: 1;">
+            @Html.Partial("~/Views/Mouvement/CreateMouvement.cshtml", new MonNameSpaceGestionCourrier.ViewModels.MouvementViewModel())
+  </div>
 </div>
+
+
+</div>
+
+
 

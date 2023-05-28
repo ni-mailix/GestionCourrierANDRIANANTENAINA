@@ -1,32 +1,56 @@
 @model MonNameSpaceGestionCourrier.ViewModels.CourrierViewModel
 
+<head>
+    <link rel="stylesheet" href="~/css/Courrier.css" />
+</head>
+
 <h2>Courrier vaovao</h2>
 
 @using (Html.BeginForm("CreateCourrier", "Courrier", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.LabelFor(model => model.Objet)
-        @Html.TextBoxFor(model => model.Objet, new { @class = "form-control" })
+        <div class="label">
+            @Html.LabelFor(model => model.Objet)
+        </div>
+        <div class="input-wrapper">
+            @Html.TextBoxFor(model => model.Objet, new { @class = "form-control" })
+        </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.DateArrivee)
-        @Html.TextBoxFor(model => model.DateArrivee, new { @class = "form-control" })
+        <div class="label">
+            @Html.LabelFor(model => model.DateArrivee)
+        </div>
+        <div class="input-wrapper">
+            @Html.TextBoxFor(model => model.DateArrivee, new { @class = "form-control" })
+        </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Expediteur)
-        @Html.TextBoxFor(model => model.Expediteur, new { @class = "form-control" })
+        <div class="label">
+            @Html.LabelFor(model => model.Expediteur)
+        </div>
+        <div class="input-wrapper">
+            @Html.TextBoxFor(model => model.Expediteur, new { @class = "form-control" })
+        </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Destinataire)
-        @Html.TextBoxFor(model => model.Destinataire, new { @class = "form-control" })
+        <div class="label">
+            @Html.LabelFor(model => model.Destinataire)
+        </div>
+        <div class="input-wrapper">
+            @Html.TextBoxFor(model => model.Destinataire, new { @class = "form-control" })
+        </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Urgent_O_N)
-        @Html.TextBoxFor(model => model.Urgent_O_N, new { @class = "form-control" })
+        <div class="label">
+            @Html.LabelFor(model => model.Urgent_O_N)
+        </div>
+        <div class="input-wrapper">
+            @Html.TextBoxFor(model => model.Urgent_O_N, new { @class = "form-control" })
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary">Create</button>

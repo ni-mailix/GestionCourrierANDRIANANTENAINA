@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NYQMwE+VVVUcODHNBvL9w1BevPdAVYM4OVfrD0Us1qg=",
+  "Hash": "apP8D8+xvdhzZ7FPkhMgQVBqDwlt58aJrVO80QXvqaA=",
   "Source": "Gestion_courrier_ANDRIANANTENAINA",
   "BasePath": "_content/Gestion_courrier_ANDRIANANTENAINA",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Dossier_Nirina\\M2\\mai-2023\\C#\\GestionCourrierANDRIANANTENAINA2318\\Gestion_courrier_ANDRIANANTENAINA\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Gestion_courrier_ANDRIANANTENAINA.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\Dossier_Nirina\\M2\\mai-2023\\C#\\GestionCourrierANDRIANANTENAINA2318\\Gestion_courrier_ANDRIANANTENAINA\\wwwroot\\css\\Courrier.css",
+      "SourceId": "Gestion_courrier_ANDRIANANTENAINA",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Dossier_Nirina\\M2\\mai-2023\\C#\\GestionCourrierANDRIANANTENAINA2318\\Gestion_courrier_ANDRIANANTENAINA\\wwwroot\\",
+      "BasePath": "_content/Gestion_courrier_ANDRIANANTENAINA",
+      "RelativePath": "css/Courrier.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Courrier.css"
     },
     {
       "Identity": "E:\\Dossier_Nirina\\M2\\mai-2023\\C#\\GestionCourrierANDRIANANTENAINA2318\\Gestion_courrier_ANDRIANANTENAINA\\wwwroot\\css\\site.css",
