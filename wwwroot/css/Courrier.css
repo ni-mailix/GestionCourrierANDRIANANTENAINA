@@ -26,11 +26,16 @@
     background-color: #15b115;
     color: #fff;
     padding: 10px 20px;
-    border: none;
+    border:black;
     border-radius: 4px;
   }
   
   .blue-background {
     background-color: rgb(225, 194, 126);
     padding: 10px 20px;
+}
+
+.mvt-background {
+  background-color: rgb(28, 163, 197);
+  padding: 10px 20px;
 }

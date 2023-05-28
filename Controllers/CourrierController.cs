@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
+using MonNameSpaceGestionCourrier.Data;
 using MonNameSpaceGestionCourrier.Models;
 using MonNameSpaceGestionCourrier.ViewModels;
-using System;
 
 namespace MonNameSpaceGestionCourrier.Controllers
 {
     public class CourrierController : Controller
     {
-        private readonly Data.GestionCourrierDbContext _dbContext;
+        private readonly GestionCourrierDbContext _dbContext;
 
-        public CourrierController(Data.GestionCourrierDbContext dbContext)
+        public CourrierController(GestionCourrierDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -18,26 +18,32 @@ namespace MonNameSpaceGestionCourrier.Controllers
 
         public IActionResult CreateCourrier()
         {
-            return View("~/Views/Courrier/CreateCourrier.cshtml");
+            return View();
         }
 
+        [HttpPost]
+        public IActionResult CreateCourrier(CourrierViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var courrier = new Courrier
+                {
+                    Objet = model.Objet,
+                    DateArrivee = model.DateArrivee,
+                    Expediteur = model.Expediteur,
+                    Destinataire = model.Destinataire,
+                    Urgent_O_N = model.Urgent_O_N
+                };
 
-[HttpPost]
-public IActionResult CreateCourrier(CourrierViewModel model)
-{
-    if (ModelState.IsValid)
-    {
-        // Logique de création d'un courrier
+                _dbContext.Courriers.Add(courrier);
+                _dbContext.SaveChanges();
 
-        // Retourner la vue de succès ou une autre action
-        //return View("CreateCourrierSuccess");
-        Console.WriteLine("vue affiché");
-        return View("CreateCourrier", model);
-    }
+                // Redirigez vers une action appropriée (par exemple, Index)
+                return RedirectToAction("Index", "Home");
+            }
 
-    // Si le modèle n'est pas valide, afficher à nouveau la vue de création avec le modèle
-    return View("CreateCourrier", model);
-}
-
+            // Si le modèle n'est pas valide, affichez à nouveau la vue avec les erreurs de validation
+            return View(model);
+        }
     }
 }

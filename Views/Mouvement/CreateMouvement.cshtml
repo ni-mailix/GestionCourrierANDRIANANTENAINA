@@ -1,6 +1,6 @@
 @model MonNameSpaceGestionCourrier.ViewModels.MouvementViewModel
 
-<h2>Mouvement Courrier</h2>
+<h2>Mouvement</h2>
 
 @using (Html.BeginForm("CreateMouvement", "Mouvement", FormMethod.Post))
 {
@@ -20,22 +20,22 @@
                     <tr>
                         <td>
                             <div class="form-group">
-                                @Html.TextBoxFor(model => model.Statut, new { @class = "form-control" })
+                                @Html.TextBoxFor(model => model.Statut, new { @class = "form-control", id = $"Statut_{i}" })
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
-                                @Html.TextBoxFor(model => model.Acteur, new { @class = "form-control" })
+                                @Html.TextBoxFor(model => model.Acteur, new { @class = "form-control", id = $"Acteur_{i}" })
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
-                                @Html.TextBoxFor(model => model.DateMouvement, new { @class = "form-control" })
+                                @Html.TextBoxFor(model => model.DateMouvement, new { @class = "form-control", id = $"DateMouvement_{i}" })
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
-                                @Html.TextBoxFor(model => model.Nom_depositaire, new { @class = "form-control" })
+                                @Html.TextBoxFor(model => model.Nom_depositaire, new { @class = "form-control", id = $"Nom_depositaire_{i}" })
                             </div>
                         </td>
                     </tr>
@@ -44,5 +44,5 @@
         </table>
     </div>
 
-    <button type="submit" class="btn btn-primary">Create</button>
+    <!-- <button type="submit" class="btn btn-primary">Create</button> -->
 }
