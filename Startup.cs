@@ -18,22 +18,19 @@ namespace MonNameSpaceGestionCourrier
             Configuration = configuration;
         }
 
-        [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
             // Configure DbContext
             services.AddDbContext<GestionCourrierDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            // Configure MVC
-            services.AddControllersWithViews();
+            // Configure MVC and enable endpoint routing
+            services.AddControllersWithViews()
+                .AddRazorRuntimeCompilation(); // Optional: enables runtime compilation of Razor views
 
-            // Configure default routing
-            services.AddMvc(options => options.EnableEndpointRouting = false)
-                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            // Add routing
+            services.AddRouting(options => options.LowercaseUrls = true);
         }
-
-
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -50,39 +47,33 @@ namespace MonNameSpaceGestionCourrier
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
-{
-    // Création d'un nouveau courrier
-    routes.MapRoute(
-        name: "courrier-create",
-        template: "courrier/create",
-        defaults: new { controller = "Courrier", action = "CreateCourrier" }
-    );
+            app.UseRouting();
 
-    // Affichage des détails d'un courrier
-    routes.MapRoute(
-        name: "courrier-details",
-        template: "courrier/{id}",
-        defaults: new { controller = "Courrier", action = "Details" }
-    );
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "courrier-create",
+                    pattern: "courrier/create",
+                    defaults: new { controller = "Courrier", action = "CreateCourrier" }
+                );
 
+                endpoints.MapControllerRoute(
+                    name: "courrier-details",
+                    pattern: "courrier/{id}",
+                    defaults: new { controller = "Courrier", action = "Details" }
+                );
 
-    // Interrogation des courriers
-    routes.MapRoute(
-        name: "courrier-query",
-        template: "courrier/query",
-        defaults: new { controller = "Courrier", action = "Query" }
-    );
+                endpoints.MapControllerRoute(
+                    name: "courrier-query",
+                    pattern: "courrier/query",
+                    defaults: new { controller = "Courrier", action = "Query" }
+                );
 
-    // Autres routes...
-
-    routes.MapRoute(
-        name: "default",
-        template: "{controller=Home}/{action=Index}/{id?}"
-    );
-});
-
-
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                );
+            });
         }
     }
 }

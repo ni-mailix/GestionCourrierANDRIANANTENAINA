@@ -1,0 +1,27 @@
+@model List<MonNameSpaceGestionCourrier.Models.Courrier>
+
+<h2>Liste des courriers</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Objet</th>
+            <th>Date d'arrivée</th>
+            <th>Expediteur</th>
+            <th>Destinataire</th>
+            <th>Urgent</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var courrier in Model)
+        {
+            <tr>
+                <td>@courrier.Objet</td>
+                <td>@courrier.DateArrivee</td>
+                <td>@courrier.Expediteur</td>
+                <td>@courrier.Destinataire</td>
+                <td>@courrier.Urgent_O_N</td>
+            </tr>
+        }
+    </tbody>
+</table>
