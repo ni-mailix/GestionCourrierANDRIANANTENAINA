@@ -32,6 +32,7 @@ public IActionResult CreateCourrier(CourrierViewModel model)
         // Retourner la vue de succès ou une autre action
         //return View("CreateCourrierSuccess");
         Console.WriteLine("vue affiché");
+        return View("CreateCourrier", model);
     }
 
     // Si le modèle n'est pas valide, afficher à nouveau la vue de création avec le modèle

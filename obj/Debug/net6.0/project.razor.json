@@ -18414,11 +18414,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Dossier_Nirina\\M2\\mai-2023\\C#\\GestionCourrierANDRIANANTENAINA2318\\Gestion_courrier_ANDRIANANTENAINA\\Views\\index.cshtml",
-      "TargetPath": "Views\\index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "e:\\Dossier_Nirina\\M2\\mai-2023\\C#\\GestionCourrierANDRIANANTENAINA2318\\Gestion_courrier_ANDRIANANTENAINA\\Views\\Mouvement\\Detail.cshtml",
       "TargetPath": "Views\\Mouvement\\Detail.cshtml",
       "FileKind": "mvc"
