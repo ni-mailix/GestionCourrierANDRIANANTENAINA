@@ -1,48 +1,103 @@
 @model MonNameSpaceGestionCourrier.ViewModels.MouvementViewModel
 
+<head>
+    <!-- Inclure les styles Bootstrap -->
+    <link
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+
 <h2>Mouvement</h2>
 
 @using (Html.BeginForm("CreateMouvement", "Mouvement", FormMethod.Post))
 {
     <div style="height: 300px; overflow-y: scroll;">
-        <table>
-            <thead>
+
+        <table id="mouvementTable">
+            <thead class="fixed-header">
                 <tr>
                     <th>Statut</th>
                     <th>Acteur</th>
                     <th>Date Mouvement</th>
                     <th>Nom Dépositaire</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <div >
+            <tbody >
                 @for (int i = 0; i < 10; i++)
                 {
                     <tr>
                         <td>
+                            <div class="form-group narrow-field">
+                                <!-- @Html.LabelFor(model => model.Statut) -->
+                                <select class="form-control" id="Statut" name="Statut">
+                                    <option value="recu">Reçu</option>
+                                    <option value="transfere">Transféré</option>
+                                    <option value="arrivee">Arrivée</option>
+                                    <!-- Ajoutez d'autres options selon vos besoins -->
+                                </select>
+                            </div>
+
+                        </td>
+                        <td>
                             <div class="form-group">
-                                @Html.TextBoxFor(model => model.Statut, new { @class = "form-control", id = $"Statut_{i}" })
+                                @Html.TextBoxFor(model => model.Acteur, new { @class =
+                        "form-control", id = $"Acteur_{i}" })
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group narrow-field-date">
+                                @Html.TextBoxFor(model => model.DateMouvement, new {
+                        @class = "form-control", id = $"DateMouvement_{i}",
+                        placeholder = "" })
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
-                                @Html.TextBoxFor(model => model.Acteur, new { @class = "form-control", id = $"Acteur_{i}" })
+                                @Html.TextBoxFor(model => model.Nom_depositaire, new {
+                        @class = "form-control", id = $"Nom_depositaire_{i}" })
                             </div>
                         </td>
                         <td>
-                            <div class="form-group">
-                                @Html.TextBoxFor(model => model.DateMouvement, new { @class = "form-control", id = $"DateMouvement_{i}" })
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                @Html.TextBoxFor(model => model.Nom_depositaire, new { @class = "form-control", id = $"Nom_depositaire_{i}" })
+                            <div class="text-center">
+                                <!-- Ajout d'une classe pour centrer les boutons -->
+                                <button type="button" class="btn btn-danger btn-sm"
+                                    onclick="deleteRow(this)">Supprimer</button>
                             </div>
                         </td>
                     </tr>
                 }
             </tbody>
+            </div>
         </table>
     </div>
 
-    <!-- <button type="submit" class="btn btn-primary">Create</button> -->
+    <button type="button" class="btn btn-primary" onclick="addRow()">Ajouter</button>
 }
+
+<script>
+    function addRow() {
+        var table = document.getElementById("mouvementTable");
+        var rowCount = table.rows.length;
+
+        var row = table.insertRow(rowCount);
+
+        var statutCell = row.insertCell(0);
+        var acteurCell = row.insertCell(1);
+        var dateMouvementCell = row.insertCell(2);
+        var nomDepositaireCell = row.insertCell(3);
+        var actionsCell = row.insertCell(4);
+
+        statutCell.innerHTML = '<div class="form-group narrow-field"><input type="text" class="form-control" name="Statut" id="Statut_' + rowCount + '"></div>';
+        acteurCell.innerHTML = '<div class="form-group"><input type="text" class="form-control" name="Acteur" id="Acteur_' + rowCount + '"></div>';
+        dateMouvementCell.innerHTML = '<div class="form-group narrow-field-date"><input type="text" class="form-control" name="DateMouvement" id="DateMouvement_' + rowCount + '" placeholder=""></div>';
+        nomDepositaireCell.innerHTML = '<div class="form-group"><input type="text" class="form-control" name="Nom_depositaire" id="Nom_depositaire_' + rowCount + '"></div>';
+        actionsCell.innerHTML = '<div class="text-center"><button type="button" class="btn btn-danger btn-sm" onclick="deleteRow(this)">Supprimer</button></div>';
+    }
+
+    function deleteRow(button) {
+        var row = button.parentNode.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>

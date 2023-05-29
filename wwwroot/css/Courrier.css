@@ -3,6 +3,7 @@
     /*display: flex;*/
     align-items: left;
     width: 250px;
+    font-weight: bold;
   }
   
   .label {
@@ -13,6 +14,11 @@
   
   .input-wrapper {
     flex-grow: 1;
+  }
+
+  .check-box{
+    flex-grow: 1;
+    color: #f40a0a;
   }
   
   .form-control {
@@ -38,4 +44,21 @@
 .mvt-background {
   background-color: rgb(28, 163, 197);
   padding: 10px 20px;
+}
+
+.narrow-field {
+  width: 100px; /* Définissez la largeur souhaitée */
+}
+
+.narrow-field-date {
+  width: 200px; /* Définissez la largeur souhaitée */
+}
+
+.fixed-header {
+  position: sticky;
+  top: 0;
+  margin-top: -10px;
+ /* left: 0;
+  width: 100%;
+  z-index: 1; *//* Assurez-vous que les labels sont superposés au contenu */
 }

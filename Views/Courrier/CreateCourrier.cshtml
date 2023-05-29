@@ -24,7 +24,7 @@
         </div>
         <div class="input-wrapper">
             @Html.TextBoxFor(model => model.DateArrivee, new { @class =
-        "form-control", id = "DateArrivee" })
+        "form-control", id = "DateArrivee", placeholder = ""})
         </div>
     </div>
 
@@ -49,14 +49,14 @@
     </div>
 
     <div class="form-group">
-        <div class="label">
+        <!-- <div class="label">
             @Html.LabelFor(model => model.Urgent_O_N)
-        </div>
+        </div> -->
 
         <div class="input-wrapper">
             <input type="checkbox" id="Urgent_O_N" name="Urgent_O_N"
                 class="form-check-input" @(Model.Urgent_O_N == "O" ? "checked" : "")>
-            <label for="Urgent_O_N" class="form-check-label">Urgent</label>
+            <label for="Urgent_O_N" class="check-box">Urgent</label>
             <input type="hidden" name="Urgent_O_N" value="N">
             <!-- Valeur par défaut -->
         </div>
