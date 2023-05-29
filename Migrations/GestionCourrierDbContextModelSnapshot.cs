@@ -22,50 +22,45 @@ namespace Gestion_courrier_ANDRIANANTENAINA.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MonNameSpaceGestionCourrier.Data.Courrier", b =>
+            modelBuilder.Entity("MonNameSpaceGestionCourrier.Models.Courrier", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("DateArrivee")
+                    b.Property<DateTime?>("DateArrivee")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateCreation")
+                    b.Property<DateTime?>("DateCreation")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateModification")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Destinataire")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Expediteur")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Objet")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Urgent_O_N")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Courriers");
+                    b.ToTable("Courrier");
                 });
 
-            modelBuilder.Entity("MonNameSpaceGestionCourrier.Data.MouvementCourrier", b =>
+            modelBuilder.Entity("MonNameSpaceGestionCourrier.Models.MouvementCourrier", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Acteur")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("CourrierId")
@@ -75,16 +70,14 @@ namespace Gestion_courrier_ANDRIANANTENAINA.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nom_depositaire")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Statut")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("MouvementsCourriers");
+                    b.ToTable("MouvementCourrier");
                 });
 #pragma warning restore 612, 618
         }

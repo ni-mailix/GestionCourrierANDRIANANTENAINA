@@ -13,7 +13,8 @@
             @Html.LabelFor(model => model.Objet)
         </div>
         <div class="input-wrapper">
-            @Html.TextBoxFor(model => model.Objet, new { @class = "form-control", id = "Objet" })
+            @Html.TextBoxFor(model => model.Objet, new { @class = "form-control", id
+        = "Objet" })
         </div>
     </div>
 
@@ -22,7 +23,8 @@
             @Html.LabelFor(model => model.DateArrivee)
         </div>
         <div class="input-wrapper">
-            @Html.TextBoxFor(model => model.DateArrivee, new { @class = "form-control", id = "DateArrivee" })
+            @Html.TextBoxFor(model => model.DateArrivee, new { @class =
+        "form-control", id = "DateArrivee" })
         </div>
     </div>
 
@@ -31,7 +33,8 @@
             @Html.LabelFor(model => model.Expediteur)
         </div>
         <div class="input-wrapper">
-            @Html.TextBoxFor(model => model.Expediteur, new { @class = "form-control", id = "Expediteur" })
+            @Html.TextBoxFor(model => model.Expediteur, new { @class =
+        "form-control", id = "Expediteur" })
         </div>
     </div>
 
@@ -40,7 +43,8 @@
             @Html.LabelFor(model => model.Destinataire)
         </div>
         <div class="input-wrapper">
-            @Html.TextBoxFor(model => model.Destinataire, new { @class = "form-control", id = "Destinataire" })
+            @Html.TextBoxFor(model => model.Destinataire, new { @class =
+        "form-control", id = "Destinataire" })
         </div>
     </div>
 
@@ -48,9 +52,15 @@
         <div class="label">
             @Html.LabelFor(model => model.Urgent_O_N)
         </div>
+
         <div class="input-wrapper">
-            @Html.TextBoxFor(model => model.Urgent_O_N, new { @class = "form-control", id = "Urgent_O_N" })
+            <input type="checkbox" id="Urgent_O_N" name="Urgent_O_N"
+                class="form-check-input" @(Model.Urgent_O_N == "O" ? "checked" : "")>
+            <label for="Urgent_O_N" class="form-check-label">Urgent</label>
+            <input type="hidden" name="Urgent_O_N" value="N">
+            <!-- Valeur par défaut -->
         </div>
+
     </div>
 
     <button type="submit" class="btn btn-primary">Create</button>

@@ -37,22 +37,39 @@ namespace MonNameSpaceGestionCourrier.Controllers
                     Urgent_O_N = model.Urgent_O_N
                 };
 
-                try
+                // try
+                // {
+                //     _dbContext.Courriers.Add(courrier);
+                //     _dbContext.SaveChanges();
+
+                //     _logger.LogInformation("Les données ont été insérées avec succès dans la base de données.");
+
+                //     return RedirectToAction("Index", "Home");
+                // }
+                // catch (Exception ex)
+                // {
+                //     _logger.LogError(ex, "Une erreur s'est produite lors de l'insertion des données.");
+                //     ModelState.AddModelError("", "Une erreur s'est produite lors de l'insertion des données. Veuillez réessayer.");
+
+                //     return View(model);
+                // }
+
+                using (var transaction = _dbContext.Database.BeginTransaction())
                 {
-                    _dbContext.Courriers.Add(courrier);
-                    _dbContext.SaveChanges();
+                    try
+                    {
+                        // Effectuez vos opérations de saisie des données ici
 
-                    _logger.LogInformation("Les données ont été insérées avec succès dans la base de données.");
-
-                    return RedirectToAction("Index", "Home");
+                        _dbContext.SaveChanges();
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "Une erreur s'est produite lors de l'insertion des données.");
-                    ModelState.AddModelError("", "Une erreur s'est produite lors de l'insertion des données. Veuillez réessayer.");
 
-                    return View(model);
-                }
             }
 
             return View(model);
