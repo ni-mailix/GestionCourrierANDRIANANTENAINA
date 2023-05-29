@@ -56,7 +56,7 @@ namespace MonNameSpaceGestionCourrier
             {
                 endpoints.MapControllerRoute(
                     name: "courrier-create",
-                    pattern: "courrier/create",
+                    pattern: "/Courrier/CreateCourrier",
                     defaults: new { controller = "Courrier", action = "CreateCourrier" }
                 );
 

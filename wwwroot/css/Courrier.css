@@ -36,6 +36,18 @@
     border-radius: 4px;
   }
   
+  .btn-ajouter {
+    float: right;
+    background-color: #4966e7;
+    color: #fff;
+    padding: 100px 200px;
+    border:black;
+    border-radius: 4px;
+    position:relative;
+    right: 200;
+    bottom: 100;
+  }
+
   .blue-background {
     background-color: rgb(225, 194, 126);
     padding: 10px 20px;

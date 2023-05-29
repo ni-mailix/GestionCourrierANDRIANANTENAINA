@@ -2,9 +2,7 @@
 
 <head>
     <!-- Inclure les styles Bootstrap -->
-    <link
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <h2>Mouvement</h2>
@@ -12,68 +10,65 @@
 @using (Html.BeginForm("CreateMouvement", "Mouvement", FormMethod.Post))
 {
     <div style="height: 300px; overflow-y: scroll;">
-
         <table id="mouvementTable">
-            <thead class="fixed-header">
-                <tr>
-                    <th>Statut</th>
-                    <th>Acteur</th>
-                    <th>Date Mouvement</th>
-                    <th>Nom Dépositaire</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <div >
-            <tbody >
-                @for (int i = 0; i < 10; i++)
-                {
+            <div>
+                <thead class="fixed-header">
                     <tr>
-                        <td>
-                            <div class="form-group narrow-field">
-                                <!-- @Html.LabelFor(model => model.Statut) -->
-                                <select class="form-control" id="Statut" name="Statut">
-                                    <option value="recu">Reçu</option>
-                                    <option value="transfere">Transféré</option>
-                                    <option value="arrivee">Arrivée</option>
-                                    <!-- Ajoutez d'autres options selon vos besoins -->
-                                </select>
-                            </div>
-
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                @Html.TextBoxFor(model => model.Acteur, new { @class =
-                        "form-control", id = $"Acteur_{i}" })
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group narrow-field-date">
-                                @Html.TextBoxFor(model => model.DateMouvement, new {
-                        @class = "form-control", id = $"DateMouvement_{i}",
-                        placeholder = "" })
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                @Html.TextBoxFor(model => model.Nom_depositaire, new {
-                        @class = "form-control", id = $"Nom_depositaire_{i}" })
-                            </div>
-                        </td>
-                        <td>
-                            <div class="text-center">
-                                <!-- Ajout d'une classe pour centrer les boutons -->
-                                <button type="button" class="btn btn-danger btn-sm"
-                                    onclick="deleteRow(this)">Supprimer</button>
-                            </div>
-                        </td>
+                        <th>Statut</th>
+                        <th>Acteur</th>
+                        <th>Date Mouvement</th>
+                        <th>Nom Dépositaire</th>
+                        <th>Actions</th>
                     </tr>
-                }
-            </tbody>
+                </thead>
+            </div>
+            <div>
+                <tbody>
+                    @for (int i = 0; i < 10; i++)
+                    {
+                        <tr>
+                            <td>
+                                <div class="form-group narrow-field">
+                                    <!-- @Html.LabelFor(model => model.Statut) -->
+                                    <select class="form-control" id="StatutCourrier_@i" name="Statut">
+                                        <option value="">statut</option>
+                                        <option value="recu">Reçu</option>
+                                        <option value="transfere">Transféré</option>
+                                        <option value="arrivee">Arrivée</option>
+                                        <!-- Ajoutez d'autres options selon vos besoins -->
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.Acteur, new { @class = "form-control", id = $"Acteur_{i}" })
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group narrow-field-date">
+                                    @Html.TextBoxFor(model => model.DateMouvement, new { @class = "form-control", id = $"DateMouvement_{i}", placeholder = "" })
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.Nom_depositaire, new { @class = "form-control", id = $"Nom_depositaire_{i}" })
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    <!-- Ajout d'une classe pour centrer les boutons -->
+                                    <button type="button" class="btn btn-danger btn-sm" onclick="deleteRow(this)">Supprimer</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
             </div>
         </table>
     </div>
-
-    <button type="button" class="btn btn-primary" onclick="addRow()">Ajouter</button>
+    <div>
+        <button type="button" class="btn btn-ajouter" onclick="addRow()">Ajouter ligne</button>
+    </div>
 }
 
 <script>

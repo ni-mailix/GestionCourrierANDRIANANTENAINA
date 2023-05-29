@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MonNameSpaceGestionCourrier.Models;
+using MonNameSpaceGestionCourrier.Data;
 
 namespace MonNameSpaceGestionCourrier.Data
 {
@@ -16,8 +17,16 @@ namespace MonNameSpaceGestionCourrier.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Courrier>()
-                .Property(c => c.Urgent_O_N)
-                .HasConversion<string>();
+                .ToTable("Courrier");
+
+            modelBuilder.Entity<MouvementCourrier>()
+                .ToTable("MouvementCourrier");
+        }
+        
+        public override int SaveChanges()
+        {
+            ChangeTracker.DetectChanges();
+            return base.SaveChanges();
         }
     }
 }

@@ -31,12 +31,6 @@ namespace Gestion_courrier_ANDRIANANTENAINA.Migrations
                     b.Property<DateTime?>("DateArrivee")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DateCreation")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateModification")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Destinataire")
                         .HasColumnType("nvarchar(max)");
 
@@ -63,10 +57,10 @@ namespace Gestion_courrier_ANDRIANANTENAINA.Migrations
                     b.Property<string>("Acteur")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("CourrierId")
+                    b.Property<Guid?>("CourrierId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("DateMouvement")
+                    b.Property<DateTime?>("DateMouvement")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nom_depositaire")

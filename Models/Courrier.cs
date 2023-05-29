@@ -12,7 +12,5 @@ namespace MonNameSpaceGestionCourrier.Models
         public string? Expediteur { get; set; }
         public string? Destinataire { get; set; }
         public string? Urgent_O_N { get; set; }
-        public DateTime? DateCreation { get; set; }
-        public DateTime? DateModification { get; set; }
     }
 }

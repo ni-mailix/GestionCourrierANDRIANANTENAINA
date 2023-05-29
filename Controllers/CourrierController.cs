@@ -24,55 +24,39 @@ namespace MonNameSpaceGestionCourrier.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCourrier(CourrierViewModel model)
+public IActionResult CreateCourrier(CourrierViewModel model)
+{
+    if (ModelState.IsValid)
+    {
+        var courrier = new Courrier
         {
-            if (ModelState.IsValid)
-            {
-                var courrier = new Courrier
-                {
-                    Objet = model.Objet,
-                    DateArrivee = model.DateArrivee,
-                    Expediteur = model.Expediteur,
-                    Destinataire = model.Destinataire,
-                    Urgent_O_N = model.Urgent_O_N
-                };
+            Objet = model.Objet,
+            DateArrivee = model.DateArrivee,
+            Expediteur = model.Expediteur,
+            Destinataire = model.Destinataire,
+            Urgent_O_N = model.Urgent_O_N
+        };
 
-                // try
-                // {
-                //     _dbContext.Courriers.Add(courrier);
-                //     _dbContext.SaveChanges();
+        try
+        {
+            _dbContext.Courriers.Add(courrier);
+            _dbContext.SaveChanges();
 
-                //     _logger.LogInformation("Les données ont été insérées avec succès dans la base de données.");
+            _logger.LogInformation("Les données ont été insérées avec succès dans la base de données.");
 
-                //     return RedirectToAction("Index", "Home");
-                // }
-                // catch (Exception ex)
-                // {
-                //     _logger.LogError(ex, "Une erreur s'est produite lors de l'insertion des données.");
-                //     ModelState.AddModelError("", "Une erreur s'est produite lors de l'insertion des données. Veuillez réessayer.");
-
-                //     return View(model);
-                // }
-
-                using (var transaction = _dbContext.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        // Effectuez vos opérations de saisie des données ici
-
-                        _dbContext.SaveChanges();
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
-                }
-
-            }
+            return RedirectToAction("Index", "Home");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Une erreur s'est produite lors de l'insertion des données.");
+            ModelState.AddModelError("", "Une erreur s'est produite lors de l'insertion des données. Veuillez réessayer.");
 
             return View(model);
         }
+    }
+
+    return View(model);
+}
+
     }
 }

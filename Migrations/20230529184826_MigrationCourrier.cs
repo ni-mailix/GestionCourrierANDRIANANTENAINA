@@ -20,9 +20,7 @@ namespace Gestion_courrier_ANDRIANANTENAINA.Migrations
                     DateArrivee = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Expediteur = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Destinataire = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Urgent_O_N = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateCreation = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DateModification = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    Urgent_O_N = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -34,10 +32,10 @@ namespace Gestion_courrier_ANDRIANANTENAINA.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CourrierId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CourrierId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Statut = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Acteur = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateMouvement = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateMouvement = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Nom_depositaire = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
